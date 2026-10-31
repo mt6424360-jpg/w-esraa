@@ -4,6 +4,12 @@ const EVENT_DATE = new Date('2026-11-12T20:00:00')
 const base = import.meta.env.BASE_URL
 const asset = (path: string) => `${base}${path.replace(/^\/+/, '')}`
 const HOURGLASS_ASSET = asset('invite/Песочные часы, изящно.jpg')
+const ENVELOPE_FRONT_ASSET = asset('invite/تنزيل (9).jpg')
+
+const detailLinks = {
+  location: 'https://maps.app.goo.gl/SBxYdejZH2wH4Byd7',
+  snapchat: 'https://www.snapchat.com/lens/043ca74b50c841c6a904cb472b0b16ea?share_id=jVvBhlgHJKE&locale=en-GB',
+}
 
 type TimeLeft = {
   days: number
@@ -174,13 +180,12 @@ export default function App() {
             <span className="envelope-surprise" aria-hidden="true">
               <span className="record-piece">
                 <img alt="" src={asset('invite/record.png')} />
-                <span>TAP TO PLAY</span>
               </span>
               <span className="photo-piece">
                 <img alt="" src={asset('invite/couple-hands.webp')} />
               </span>
               <span className="names-piece">
-                <img alt="" src={asset('invite/lace-medallion.png')} />
+                <img alt="" src={asset('invite/تنزيل (9).jpg')} />
                 <span className="names-copy">
                   <small>THE WEDDING OF</small>
                   <strong>إسراء</strong>
@@ -196,7 +201,7 @@ export default function App() {
             </span>
             <span className="envelope-art">
               <span className="envelope-inside" aria-hidden="true" />
-              <img alt="" className="envelope-body" src={asset('invite/envelope-body.png')} />
+              <img alt="" className="envelope-body" src={ENVELOPE_FRONT_ASSET} />
               <img alt="" className="envelope-real-flap" src={asset('invite/envelope-flap.png')} />
             </span>
             <img alt="" className="wax-seal" src={asset('invite/seal.png')} />
@@ -249,15 +254,11 @@ export default function App() {
               <strong>الساعة 8:00 مساءً</strong>
               <span>ننتظركم بكل شوق</span>
             </DetailCard>
-            <DetailCard
-              href="https://www.google.com/maps/search/?api=1&query=Royal+Palace+Hall"
-              icon={<LocationIcon />}
-              title="الموقع"
-            >
+            <DetailCard href={detailLinks.location} icon={<LocationIcon />} title="الموقع">
               <strong>قاعة رويال بلاس</strong>
               <span>يسعدنا وصولكم</span>
             </DetailCard>
-            <DetailCard icon={<SnapchatIcon />} title="فلتر الحفلة">
+            <DetailCard href={detailLinks.snapchat} icon={<SnapchatIcon />} title="فلتر الحفلة">
               <strong>شاركونا لحظاتكم</strong>
               <span>فلتر السناب متاح في القاعة</span>
             </DetailCard>
