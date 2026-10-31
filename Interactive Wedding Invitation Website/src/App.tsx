@@ -3,6 +3,7 @@ import { useEffect, useRef, useState, type ReactNode } from 'react'
 const EVENT_DATE = new Date('2026-11-12T20:00:00')
 const base = import.meta.env.BASE_URL
 const asset = (path: string) => `${base}${path.replace(/^\/+/, '')}`
+
 const HOURGLASS_ASSET = asset('invite/Песочные часы, изящно.jpg')
 const ENVELOPE_FRONT_ASSET = asset('invite/تنزيل (9).jpg')
 
@@ -181,9 +182,11 @@ export default function App() {
               <span className="record-piece">
                 <img alt="" src={asset('invite/record.png')} />
               </span>
+
               <span className="photo-piece">
                 <img alt="" src={asset('invite/couple-hands.webp')} />
               </span>
+
               <span className="names-piece">
                 <img alt="" src={asset('invite/تنزيل (9).jpg')} />
                 <span className="names-copy">
@@ -193,29 +196,27 @@ export default function App() {
                   <strong>عبد الحفيظ</strong>
                 </span>
               </span>
+
               <span className="date-piece">
                 <small>THURSDAY</small>
                 <strong>12</strong>
                 <span>NOV · 2026</span>
               </span>
             </span>
+
             <span className="envelope-art">
               <span className="envelope-inside" aria-hidden="true" />
               <img alt="" className="envelope-body" src={ENVELOPE_FRONT_ASSET} />
               <img alt="" className="envelope-real-flap" src={asset('invite/envelope-flap.png')} />
             </span>
+
             <img alt="" className="wax-seal" src={asset('invite/seal.png')} />
           </button>
 
           <button className="open-hint" dir="ltr" onClick={openInvitation} type="button">
             <span>{opened ? 'INVITATION OPENED' : 'TAP THE ENVELOPE TO OPEN'}</span>
             {!opened && (
-              <svg
-                aria-hidden="true"
-                className="hint-arrow"
-                fill="none"
-                viewBox="0 0 72 72"
-              >
+              <svg aria-hidden="true" className="hint-arrow" fill="none" viewBox="0 0 72 72">
                 <path d="M9 61C33 65 56 48 52 15" />
                 <path d="m38 28 14-14 12 15" />
               </svg>
@@ -250,22 +251,27 @@ export default function App() {
               <strong>الخميس</strong>
               <span>12 نوفمبر 2026</span>
             </DetailCard>
+
             <DetailCard icon={<ClockIcon />} title="وقت الحفلة">
               <strong>الساعة 8:00 مساءً</strong>
               <span>ننتظركم بكل شوق</span>
             </DetailCard>
+
             <DetailCard href={detailLinks.location} icon={<LocationIcon />} title="الموقع">
               <strong>قاعة رويال بلاس</strong>
               <span>يسعدنا وصولكم</span>
             </DetailCard>
+
             <DetailCard href={detailLinks.snapchat} icon={<SnapchatIcon />} title="فلتر الحفلة">
               <strong>شاركونا لحظاتكم</strong>
               <span>فلتر السناب متاح في القاعة</span>
             </DetailCard>
+
             <DetailCard icon={<ChildrenIcon />} title="لراحة ضيوفنا">
               <strong>إدارة الصالة تمنع</strong>
               <span>اصطحاب الأطفال</span>
             </DetailCard>
+
             <DetailCard icon={<NoCameraIcon />} title="خصوصية المناسبة">
               <strong>استحلفكم بالله أن تحفظوا خصوصيتي</strong>
               <span>بعدم التصوير</span>
@@ -278,6 +284,7 @@ export default function App() {
               <p className="countdown-kicker">على موعد مع الفرح</p>
             </div>
             <h2>باقي على ليلتنا</h2>
+
             <div className="countdown-grid" dir="ltr">
               {[
                 ['days', 'يوم'],
@@ -291,6 +298,7 @@ export default function App() {
                 </div>
               ))}
             </div>
+
             <span className="closing-mark">♥</span>
             <p className="closing">حضوركم هو أجمل هدايانا</p>
           </section>
