@@ -42,14 +42,9 @@ img {
   --ivory: #f7f2e9;
   min-height: 100vh;
   background:
-    radial-gradient(circle at 16% 14%, rgb(255 255 255 / 0.9) 0 2px, transparent 3px),
-    radial-gradient(circle at 81% 26%, rgb(255 255 255 / 0.72) 0 4px, transparent 6px),
-    radial-gradient(circle at 32% 66%, rgb(255 255 255 / 0.55) 0 3px, transparent 5px),
-    linear-gradient(135deg, rgb(130 109 93 / 0.08) 25%, transparent 25%),
-    linear-gradient(225deg, rgb(130 109 93 / 0.08) 25%, transparent 25%),
-    #eee8de;
-  background-position: 0 0, 0 0, 0 0, 0 0, 24px 24px;
-  background-size: auto, auto, auto, 48px 48px, 48px 48px;
+    linear-gradient(rgba(255 255 255 / 0.18), rgba(255 255 255 / 0.14)),
+    url('/w-esraa/invite/floral-background.webp') center / cover no-repeat,
+    #efe8df;
 }
 
 .opening-screen {
@@ -59,7 +54,7 @@ img {
   place-items: center;
   min-height: 100svh;
   overflow: hidden;
-  padding: 34px 20px 48px;
+  padding: 30px 20px 42px;
   background:
     radial-gradient(circle at 50% 42%, rgb(255 255 255 / 0.86), transparent 34%),
     linear-gradient(rgb(248 245 238 / 0.84), rgb(244 239 230 / 0.9));
@@ -190,47 +185,61 @@ img {
 .envelope-surprise {
   position: absolute;
   z-index: 2;
-  inset: 8% 9% 18%;
-  display: grid;
-  grid-template-columns: 1.15fr 1.2fr;
-  gap: 12px;
+  inset: 8% 5% 18%;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.35s ease;
 }
 
 .record-piece,
 .photo-piece,
 .names-piece,
 .date-piece {
-  position: relative;
+  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   border-radius: 18px;
   background: rgba(255 255 255 / 0.12);
-  backdrop-filter: blur(2px);
 }
 
 .record-piece {
+  left: 8%;
+  top: 12%;
+  width: 39%;
+  height: 42%;
   transform: translate(-4%, -40%) rotate(-10deg) scale(0.7);
   transition: transform 0.8s ease, opacity 0.5s ease;
 }
 
 .photo-piece {
+  right: 8%;
+  top: 18%;
+  width: 38%;
+  height: 46%;
+  border-radius: 22px;
   transform: translate(0, -32%) rotate(4deg) scale(0.7);
   transition: transform 0.8s ease, opacity 0.5s ease;
 }
 
 .names-piece {
+  left: -4%;
+  bottom: 10%;
+  width: 62%;
+  height: 50%;
+  border-radius: 30px 30px 18px 18px;
   transform: translate(-8%, -22%) rotate(-7deg) scale(0.7);
   transition: transform 0.8s ease, opacity 0.5s ease;
 }
 
 .date-piece {
-  transform: translate(5%, -18%) rotate(7deg) scale(0.7);
-  transition: transform 0.8s ease, opacity 0.5s ease;
+  right: 4%;
+  bottom: 10%;
+  width: 22%;
+  height: 22%;
+  border-radius: 50%;
+  opacity: 0;
 }
 
 .record-piece img,
@@ -263,16 +272,13 @@ img {
   font-weight: 700;
 }
 
-.photo-piece {
-  border-radius: 50%;
-}
-
 .names-piece {
   overflow: visible;
 }
 
 .names-piece img {
   object-fit: contain;
+  filter: drop-shadow(0 12px 18px rgba(80, 47, 35, 0.15));
 }
 
 .names-copy {
@@ -313,38 +319,6 @@ img {
   font-family: 'Cormorant Garamond', serif;
   font-size: 26px;
   color: #a28177;
-}
-
-.date-piece {
-  display: grid;
-  place-items: center;
-  color: var(--wine);
-  background: linear-gradient(180deg, rgba(255,255,255,0.2), rgba(124, 48, 64, 0.08));
-}
-
-.date-piece small {
-  top: 14%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 8px;
-  letter-spacing: 0.14em;
-}
-
-.date-piece strong {
-  top: 34%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(30px, 4vw, 42px);
-  line-height: 1;
-}
-
-.date-piece span {
-  bottom: 16%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 11px;
-  letter-spacing: 0.12em;
 }
 
 .wax-seal {
@@ -449,9 +423,9 @@ img {
   min-height: 100vh;
   padding: 90px 20px 50px;
   background:
-    radial-gradient(circle at 10% 12%, rgb(255 255 255 / 0.7) 0 4px, transparent 30px),
-    radial-gradient(circle at 85% 28%, rgb(255 255 255 / 0.65) 0 6px, transparent 38px),
-    linear-gradient(rgb(243 237 227 / 0.88), rgb(235 226 214 / 0.92));
+    linear-gradient(rgba(255 255 255 / 0.12), rgba(255 255 255 / 0.08)),
+    url('/w-esraa/invite/floral-background.webp') center / cover no-repeat,
+    #f3eee4;
   opacity: 0;
 }
 
@@ -687,7 +661,9 @@ img {
 .hourglass-icon {
   width: 42px;
   height: 42px;
-  color: var(--wine);
+  object-fit: contain;
+  border-radius: 10px;
+  filter: drop-shadow(0 4px 10px rgba(120, 31, 42, 0.16));
 }
 
 .countdown-kicker {

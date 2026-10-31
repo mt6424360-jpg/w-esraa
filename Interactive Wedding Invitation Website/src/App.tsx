@@ -3,6 +3,7 @@ import { useEffect, useRef, useState, type ReactNode } from 'react'
 const EVENT_DATE = new Date('2026-11-12T20:00:00')
 const base = import.meta.env.BASE_URL
 const asset = (path: string) => `${base}${path.replace(/^\/+/, '')}`
+const HOURGLASS_ASSET = asset('invite/Песочные часы, изящно.jpg')
 
 type TimeLeft = {
   days: number
@@ -43,21 +44,7 @@ function Icon({
 }
 
 function HourglassIcon() {
-  return (
-    <svg
-      aria-hidden="true"
-      className="hourglass-icon"
-      fill="none"
-      viewBox="0 0 64 64"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path d="M18 8h28v8c0 9-5 15-12 20 7 5 12 11 12 20v8H18v-8c0-9 5-15 12-20-7-5-12-11-12-20V8Z" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" />
-      <path d="M24 16h16M24 48h16M22 32h20" stroke="currentColor" strokeLinecap="round" strokeWidth="3" />
-      <path d="M19 8 32 24 45 8" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" />
-      <path d="M19 56 32 40 45 56" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" />
-      <path d="M32 24v16" stroke="currentColor" strokeLinecap="round" strokeWidth="3" />
-    </svg>
-  )
+  return <img alt="" className="hourglass-icon" src={HOURGLASS_ASSET} />
 }
 
 function CalendarIcon() {
