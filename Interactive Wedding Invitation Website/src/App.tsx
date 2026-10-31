@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 
 const EVENT_DATE = new Date('2026-11-12T20:00:00')
+const base = import.meta.env.BASE_URL
+const asset = (path: string) => `${base}${path.replace(/^\/+/, '')}`
 
 type TimeLeft = {
   days: number
@@ -40,6 +42,24 @@ function Icon({
   )
 }
 
+function HourglassIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      className="hourglass-icon"
+      fill="none"
+      viewBox="0 0 64 64"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M18 8h28v8c0 9-5 15-12 20 7 5 12 11 12 20v8H18v-8c0-9 5-15 12-20-7-5-12-11-12-20V8Z" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" />
+      <path d="M24 16h16M24 48h16M22 32h20" stroke="currentColor" strokeLinecap="round" strokeWidth="3" />
+      <path d="M19 8 32 24 45 8" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" />
+      <path d="M19 56 32 40 45 56" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" />
+      <path d="M32 24v16" stroke="currentColor" strokeLinecap="round" strokeWidth="3" />
+    </svg>
+  )
+}
+
 function CalendarIcon() {
   return (
     <Icon>
@@ -70,7 +90,9 @@ function LocationIcon() {
 function SnapchatIcon() {
   return (
     <Icon>
-      <path d="M24 7c-6.4 0-10.2 4.7-10.2 10.7 0 1.7.3 3.6.2 5-1.2 2.4-3.2 3.7-5.6 4.6-.9.3-.9 1.7 0 2.1 1.4.6 2.9 1 4.3 1.3.8.2 1.4.7 1.8 1.4.8 1.5 1.8 2 3.5 1.7 1.4-.2 2.5 2.3 6 2.3s4.6-2.5 6-2.3c1.7.3 2.7-.2 3.5-1.7.4-.7 1-1.2 1.8-1.4 1.4-.3 2.9-.7 4.3-1.3.9-.4.9-1.8 0-2.1-2.4-.9-4.4-2.2-5.6-4.6-.1-1.4.2-3.3.2-5C34.2 11.7 30.4 7 24 7Z" />
+      <path d="M24 7c-6.4 0-10.2 4.7-10.2 10.7 0 1.7.3 3.6.2 5-1.2 2.4-3.2 3.7-5.6 4.6-.9.3-.9 1.7 0 2.1 1.4.6 2.9 1 4.3 1.3.8.2 1.4.7 1.8 1.4.8 1.5 1.8 2 3.5 1.7 1.4-.2 2.5 2.3 6 2.3s4.6-2.5 6-2.3c1.7.3 2.7.1 3.5-1.7.4-.7 1-1.2 1.8-1.4 1.4-.3 2.9-.7 4.3-1.3.9-.4.9-1.8 0-2.1-2.4-.9-4.3-2.2-5.6-4.6-.1-1.4.2-3.3.2-5C34.2 11.7 30.4 7 24 7Z" />
+      <path d="M22 22c1.3 1.5 2.5 2.7 4 2.7s2.7-1.2 4-2.7" />
+      <path d="M16 25c2 1.8 4.3 2.7 8 2.7s6-1 8-2.7" />
     </Icon>
   )
 }
@@ -140,7 +162,7 @@ export default function App() {
     setOpened(true)
     window.setTimeout(() => {
       invitationRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    }, 4500)
+    }, 4200)
   }
 
   return (
@@ -164,14 +186,14 @@ export default function App() {
           >
             <span className="envelope-surprise" aria-hidden="true">
               <span className="record-piece">
-                <img alt="" src="public/invite/record.png" />
+                <img alt="" src={asset('invite/record.png')} />
                 <span>TAP TO PLAY</span>
               </span>
               <span className="photo-piece">
-                <img alt="" src="public/invite/couple-hands.webp" />
+                <img alt="" src={asset('invite/couple-hands.webp')} />
               </span>
               <span className="names-piece">
-                <img alt="" src="public/invite/lace-medallion.png" />
+                <img alt="" src={asset('invite/lace-medallion.png')} />
                 <span className="names-copy">
                   <small>THE WEDDING OF</small>
                   <strong>إسراء</strong>
@@ -187,10 +209,10 @@ export default function App() {
             </span>
             <span className="envelope-art">
               <span className="envelope-inside" aria-hidden="true" />
-              <img alt="" className="envelope-body" src="/invite/envelope-body.png" />
-              <img alt="" className="envelope-real-flap" src="/invite/envelope-flap.png" />
+              <img alt="" className="envelope-body" src={asset('invite/envelope-body.png')} />
+              <img alt="" className="envelope-real-flap" src={asset('invite/envelope-flap.png')} />
             </span>
-            <img alt="" className="wax-seal" src="/invite/seal.png" />
+            <img alt="" className="wax-seal" src={asset('invite/seal.png')} />
           </button>
 
           <button className="open-hint" dir="ltr" onClick={openInvitation} type="button">
@@ -263,7 +285,10 @@ export default function App() {
           </div>
 
           <section className="countdown" aria-label="الوقت المتبقي على الحفل">
-            <p className="countdown-kicker">على موعد مع الفرح</p>
+            <div className="countdown-header">
+              <HourglassIcon />
+              <p className="countdown-kicker">على موعد مع الفرح</p>
+            </div>
             <h2>باقي على ليلتنا</h2>
             <div className="countdown-grid" dir="ltr">
               {[
