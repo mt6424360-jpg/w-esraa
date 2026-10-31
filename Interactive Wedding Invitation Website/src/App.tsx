@@ -164,14 +164,14 @@ export default function App() {
           >
             <span className="envelope-surprise" aria-hidden="true">
               <span className="record-piece">
-                <img alt="" src="/invite/record.png" />
+                <img alt="" src="public/invite/record.png" />
                 <span>TAP TO PLAY</span>
               </span>
               <span className="photo-piece">
-                <img alt="" src="/invite/couple-hands.webp" />
+                <img alt="" src="public/invite/couple-hands.webp" />
               </span>
               <span className="names-piece">
-                <img alt="" src="/invite/lace-medallion.png" />
+                <img alt="" src="public/invite/lace-medallion.png" />
                 <span className="names-copy">
                   <small>THE WEDDING OF</small>
                   <strong>إسراء</strong>
