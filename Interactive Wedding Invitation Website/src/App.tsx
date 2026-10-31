@@ -4,8 +4,9 @@ const EVENT_DATE = new Date('2026-11-12T20:00:00')
 const base = import.meta.env.BASE_URL
 const asset = (path: string) => `${base}${path.replace(/^\/+/, '')}`
 
-const HOURGLASS_ASSET = asset('invite/Песочные часы, изящно.jpg')
-const ENVELOPE_FRONT_ASSET = asset('invite/تنزيل (9).jpg')
+const HOURGLASS_ASSET = asset('invite/lace-medallion.png')
+const ENVELOPE_FRONT_ASSET = asset('invite/envelope-body.png')
+const WEDDING_CARD_ASSET = asset('invite/lace-medallion.png')
 
 const detailLinks = {
   location: 'https://maps.app.goo.gl/SBxYdejZH2wH4Byd7',
@@ -84,7 +85,8 @@ function LocationIcon() {
 function SnapchatIcon() {
   return (
     <Icon>
-      <path d="M24 7c-6.4 0-10.2 4.7-10.2 10.7 0 1.7.3 3.6.2 5-1.2 2.4-3.2 3.7-5.6 4.6-.9.3-.9 1.7 0 2.1 1.4.6 2.9 1 4.3 1.3.8.2 1.4.7 1.8 1.4.8 1.5 1.8 2 3.5 1.7 1.4-.2 2.5 2.3 6 2.3s4.6-2.5 6-2.3c1.7.3 2.7.1 3.5-1.7.4-.7 1-1.2 1.8-1.4 1.4-.3 2.9-.7 4.3-1.3.9-.4.9-1.8 0-2.1-2.4-.9-4.3-2.2-5.6-4.6-.1-1.4.2-3.3.2-5C34.2 11.7 30.4 7 24 7Z" />
+      <path d="M24 7c-6.4 0-10.2 4.7-10.2 10.7 0 1.7.3 3.6.2 5-1.2 2.4-3.2 3.7-5.6 4.6-.9.3-.9 1.7 0 2.1 1.4.6 2.9 1 4.3 1.3.8.2 1.4.7 1.8 1.4.8 1.5 1.8 2 3.5 1.7 1.4-.2 2.5 2.3 6 2.3s4.6-2.5 6-2.3c1.7.3 2.7.2 3.5-1.7.4-.7 1-1.2 1.8-1.4 1.4-.3 2.9-.7 4.3-1.3.9-.4.9-1.8 0-2.1-2.4-.9-4.4-2.2-5.6-4.6-.1-1.4.2-3.3.2-5C34.2 11.7 30.4 7 24 7Z" />
+      <circle cx="24" cy="29" r="4.5" />
       <path d="M22 22c1.3 1.5 2.5 2.7 4 2.7s2.7-1.2 4-2.7" />
       <path d="M16 25c2 1.8 4.3 2.7 8 2.7s6-1 8-2.7" />
     </Icon>
@@ -188,7 +190,7 @@ export default function App() {
               </span>
 
               <span className="names-piece">
-                <img alt="" src={asset('invite/تنزيل (9).jpg')} />
+                <img alt="" src={WEDDING_CARD_ASSET} />
                 <span className="names-copy">
                   <small>THE WEDDING OF</small>
                   <strong>إسراء</strong>
